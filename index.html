@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spider Gem</title>
+
+    <!-- optional: cleans up builder warnings once you add the files -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icons/icon-1024.png" />
+
+    <script>
+      // Add a class when running in the WebSpatial route or with the SDK present
+      (function () {
+        try {
+          const isSpatial =
+            (typeof window !== "undefined" && window.WebSpatial) ||
+            location.pathname.includes("/webspatial/avp");
+          if (isSpatial) document.documentElement.classList.add("is-spatial");
+        } catch (e) {}
+      })();
+    </script>
+    <style>
+      html,body,#root { height: 100%; margin: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- change to /src/main.tsx if you use TS -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
